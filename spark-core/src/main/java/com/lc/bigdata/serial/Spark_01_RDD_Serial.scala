@@ -31,6 +31,15 @@ object Spark_01_RDD_Serial {
 
 }
 
+/**
+ * Java 的序列化能够序列化任何的类。但是比较重（字节多），序列化后，对象的提交也
+ * 比较大。Spark 出于性能的考虑，Spark2.0 开始支持另外一种 Kryo 序列化机制。Kryo 速度
+ * 是 Serializable 的 10 倍。当 RDD 在 Shuffle 数据的时候，简单数据类型、数组和字符串类型
+ * 已经在 Spark 内部使用 Kryo 来序列化。
+ * 注意：即使使用 Kryo 序列化，也要继承 Serializable 接口。
+ *
+ * @param query
+ */
 
 //查询对象
 //类的构造器其实是类的属性，构造参数需要进行闭包检测，其实就等同于类进行闭包检测
